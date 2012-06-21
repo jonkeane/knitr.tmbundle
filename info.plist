@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>contactEmailRot13</key>
-	<string>pfxvnqnf@tznvy.pbz</string>
+	<string>chris.fonnesbeck@vanderbilt.edu</string>
 	<key>contactName</key>
-	<string>Charilaos Skiadas</string>
+	<string>Chris Fonnesbeck</string>
 	<key>description</key>
-	<string>&lt;a href="http://www.ci.tuwien.ac.at/~leisch/Sweave/"&gt;Sweave&lt;/a&gt; is basically LaTeX with inline R code.</string>
+	<string>Dynamic report generation in R</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>items</key>
@@ -35,7 +35,7 @@
 		<dict/>
 	</dict>
 	<key>name</key>
-	<string>SWeave</string>
+	<string>knitr</string>
 	<key>ordering</key>
 	<array>
 		<string>09834657-AF82-4CB6-8239-3894E9B7926E</string>
