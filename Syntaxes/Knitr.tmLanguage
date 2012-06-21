@@ -16,7 +16,7 @@
 	<key>keyEquivalent</key>
 	<string>^~S</string>
 	<key>name</key>
-	<string>SWeave</string>
+	<string>Knitr</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -27,7 +27,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.parameters.begin.sweave</string>
+					<string>punctuation.definition.parameters.begin.knitr</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -37,11 +37,11 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.parameters.end.sweave</string>
+					<string>punctuation.definition.parameters.end.knitr</string>
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.block.parameters.sweave</string>
+			<string>meta.block.parameters.knitr</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -50,45 +50,45 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.name-of-parameter.sweave</string>
+							<string>keyword.other.name-of-parameter.knitr</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.separator.key-value.sweave</string>
+							<string>punctuation.separator.key-value.knitr</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.language.boolean.sweave</string>
+							<string>constant.language.boolean.knitr</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>constant.language.results.sweave</string>
+							<string>constant.language.results.knitr</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>string.unquoted.label.sweave</string>
+							<string>string.unquoted.label.knitr</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>(\w+)(=)(?:(true|false)|(verbatim|tex|hide)|([\w.]+))</string>
 					<key>name</key>
-					<string>meta.parameter.sweave</string>
+					<string>meta.parameter.knitr</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>[\w.]+</string>
 					<key>name</key>
-					<string>string.unquoted.label.sweave</string>
+					<string>string.unquoted.label.knitr</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>,</string>
 					<key>name</key>
-					<string>punctuation.separator.parameters.sweave</string>
+					<string>punctuation.separator.parameters.knitr</string>
 				</dict>
 			</array>
 		</dict>
@@ -100,16 +100,16 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.section.embedded.begin.sweave</string>
+					<string>punctuation.section.embedded.begin.knitr</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>comment.line.other.sweave</string>
+					<string>comment.line.other.knitr</string>
 				</dict>
 			</dict>
 			<key>contentName</key>
-			<string>source.r.embedded.sweave</string>
+			<string>source.r.embedded.knitr</string>
 			<key>end</key>
 			<string>^(@)(.*)$</string>
 			<key>endCaptures</key>
@@ -117,23 +117,23 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.section.embedded.end.sweave</string>
+					<string>punctuation.section.embedded.end.knitr</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>comment.line.other.sweave</string>
+					<string>comment.line.other.knitr</string>
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.block.code.sweave</string>
+			<string>meta.block.code.knitr</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
 					<string>^\s+@.*\n?</string>
 					<key>name</key>
-					<string>invalid.illegal.sweave</string>
+					<string>invalid.illegal.knitr</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -145,7 +145,7 @@
 			<key>match</key>
 			<string>^\s+&lt;&lt;.*\n?</string>
 			<key>name</key>
-			<string>invalid.illegal.sweave</string>
+			<string>invalid.illegal.knitr</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -164,7 +164,7 @@
 				</dict>
 			</dict>
 			<key>contentName</key>
-			<string>source.r.embedded.sweave</string>
+			<string>source.r.embedded.knitr</string>
 			<key>end</key>
 			<string>^\\end(\{)Scode(\})</string>
 			<key>name</key>
@@ -199,7 +199,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>source.r.embedded.sweave</string>
+			<string>source.r.embedded.knitr</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -214,7 +214,7 @@
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>text.tex.latex.sweave</string>
+	<string>text.tex.latex.knitr</string>
 	<key>uuid</key>
 	<string>1F450973-8259-4BA2-A754-48C634561A13</string>
 </dict>
