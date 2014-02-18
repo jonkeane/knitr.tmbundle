@@ -27,7 +27,7 @@ print text.join
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>
-	<string>text.tex.latex.sweave meta.block</string>
+	<string>text.tex.latex.knitr meta.block</string>
 	<key>uuid</key>
 	<string>8C2877BB-43F5-4BB2-A41C-6450EA7EE26B</string>
 </dict>

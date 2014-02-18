@@ -33,7 +33,7 @@
 	<key>name</key>
 	<string>Fix Code Block Indent</string>
 	<key>scope</key>
-	<string>text.tex.latex.sweave</string>
+	<string>text.tex.latex.knitr</string>
 	<key>uuid</key>
 	<string>46BF8028-35BE-40DC-9E52-89CDF679DB02</string>
 </dict>

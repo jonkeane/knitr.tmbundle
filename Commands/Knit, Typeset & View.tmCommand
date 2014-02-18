@@ -94,7 +94,7 @@ html_footer
 		<key>outputLocation</key>
 		<string>newWindow</string>
 		<key>scope</key>
-		<string>text.tex.latex.sweave, text.sweave</string>
+		<string>text.tex.latex.knitr, text.sweave</string>
 		<key>version</key>
 		<integer>2</integer>
 	</dict>
