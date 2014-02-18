@@ -16,6 +16,6 @@ osascript -e 'tell application "R" to activate' -e "tell application \"R\" to cm
 	<key>scope</key>
 	<string>source.r, text.sweave</string>
 	<key>uuid</key>
-	<string>6B05627E-6513-4C10-A489-1A09001F8D0D</string>
+	<string>CCCC841F-D490-47F1-8A80-1F5A8D76A967</string>
 </dict>
 </plist>
