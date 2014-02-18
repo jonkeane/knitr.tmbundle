@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Named Code Blocks in Symbol List</string>
 	<key>scope</key>
-	<string>meta.block.parameters.sweave</string>
+	<string>meta.block.parameters.knitr</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

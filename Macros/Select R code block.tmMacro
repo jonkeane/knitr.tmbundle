@@ -33,7 +33,7 @@
 	<key>name</key>
 	<string>Select Code Block</string>
 	<key>scope</key>
-	<string>source.r.embedded.sweave</string>
+	<string>source.r.embedded.knitr</string>
 	<key>uuid</key>
 	<string>C187628B-3AC6-4ADD-9CA8-9557568F993E</string>
 </dict>

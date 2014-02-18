@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>comment preferences</string>
 	<key>scope</key>
-	<string>text.sweave</string>
+	<string>text.knitr</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>

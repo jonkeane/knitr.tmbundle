@@ -40,7 +40,7 @@ cd "$DIR"
 html_header 'Knit, Typeset &amp;amp; View' "$FILE"
 echo '&lt;h2&gt;knitting…&lt;/h2&gt;'
 
-SW=${TM_SWEAVE_WD:=${TM_DIRECTORY}}
+SW=${TM_KNITR_WD:=${TM_DIRECTORY}}
 echo -e "setwd('$SW')\nknit('$TM_FILEPATH')" | "$TM_REXEC" --vanilla --quiet | pre
 
 # Check if we actually have a tex compiler
@@ -94,7 +94,7 @@ html_footer
 		<key>outputLocation</key>
 		<string>newWindow</string>
 		<key>scope</key>
-		<string>text.tex.latex.knitr, text.sweave</string>
+		<string>text.tex.latex.knitr, text.knitr</string>
 		<key>version</key>
 		<integer>2</integer>
 	</dict>

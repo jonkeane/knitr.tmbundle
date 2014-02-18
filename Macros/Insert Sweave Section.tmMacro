@@ -18,9 +18,9 @@ $0
 
 </string>
 				<key>name</key>
-				<string>Insert SWeave section</string>
+				<string>Insert KNitr section</string>
 				<key>scope</key>
-				<string>text.sweave</string>
+				<string>text.knitr</string>
 				<key>tabTrigger</key>
 				<string>swsec</string>
 				<key>uuid</key>

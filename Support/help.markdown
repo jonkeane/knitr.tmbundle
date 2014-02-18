@@ -12,7 +12,7 @@ The bundle works in conjunction with the R bundle by using the same context for 
 
 ### Language
 
-The `knitr` bundle uses a simple language configuration, essentially copying a couple of elements from the R and LaTeX bundles and adding code to recognize `knitr` code within a document. `knitr` files get the overall context of text.latex.sweave; this prevents the bundle from hijacking the gear menu for regular LaTeX files while allowing for the use of all the features of the LaTeX bundle within `knitr` files. It also parses \Sexpr{} commands inline and assigns them the context meta.sweave.latex so that they can be given their own color highlighting.
+The `knitr` bundle uses a simple language configuration, essentially copying a couple of elements from the R and LaTeX bundles and adding code to recognize `knitr` code within a document. `knitr` files get the overall context of text.latex.knitr; this prevents the bundle from hijacking the gear menu for regular LaTeX files while allowing for the use of all the features of the LaTeX bundle within `knitr` files. It also parses \Sexpr{} commands inline and assigns them the context meta.knitr.latex so that they can be given their own color highlighting.
 
 
 ### Usage
