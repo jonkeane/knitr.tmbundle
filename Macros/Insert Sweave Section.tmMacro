@@ -18,13 +18,13 @@ $0
 
 </string>
 				<key>name</key>
-				<string>Insert SWeave section</string>
+				<string>Insert KNitr section</string>
 				<key>scope</key>
-				<string>text.sweave</string>
+				<string>text.knitr</string>
 				<key>tabTrigger</key>
 				<string>swsec</string>
 				<key>uuid</key>
-				<string>C06C4758-E046-4ADE-A576-09E289F0BF42</string>
+				<string>1A066317-C1A3-4708-9CC9-50A724DFC2A8</string>
 			</dict>
 			<key>command</key>
 			<string>insertSnippetWithOptions:</string>
@@ -35,8 +35,8 @@ $0
 	<key>name</key>
 	<string>Insert Code Block</string>
 	<key>scope</key>
-	<string>text.tex.latex.sweave</string>
+	<string>text.tex.latex.knitr</string>
 	<key>uuid</key>
-	<string>6C7BC711-D711-4F9D-A15F-DB797D0E612D</string>
+	<string>A6CDDE2A-1FC8-44A5-939E-3EEFDFF81EDD</string>
 </dict>
 </plist>

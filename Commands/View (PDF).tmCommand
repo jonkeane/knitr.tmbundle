@@ -26,8 +26,8 @@ echo "loading &lt;b&gt;$M&lt;/b&gt;"
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>text.sweave</string>
+	<string>text.knitr</string>
 	<key>uuid</key>
-	<string>43E6A4DB-1524-4FDD-8BD9-76852A2FA790</string>
+	<string>1FE05793-303A-4CD8-911B-B904EBDF2DA9</string>
 </dict>
 </plist>

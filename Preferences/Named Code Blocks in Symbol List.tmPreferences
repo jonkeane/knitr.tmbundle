@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Named Code Blocks in Symbol List</string>
 	<key>scope</key>
-	<string>meta.block.parameters.sweave</string>
+	<string>meta.block.parameters.knitr</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
@@ -18,6 +18,6 @@
 	</string>
 	</dict>
 	<key>uuid</key>
-	<string>6677D67A-999F-4F29-8151-3308967D51D7</string>
+	<string>4A548E07-8B01-49C1-AB44-115A8B73A94A</string>
 </dict>
 </plist>
