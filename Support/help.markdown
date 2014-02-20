@@ -6,7 +6,7 @@ This bundle produces basic [`knitr`](http://yihui.name/knitr/) funcationality in
 
 The bundle works in conjunction with the R bundle by using the same context for embedded R code: Use the regular couple of R commands to send code to R from TextMate.
 
-**Last modified**: 2012-06-21
+**Last modified**: 2014-02-20
 
 ## Using the bundle
 
@@ -26,8 +26,9 @@ Typeset: When using the `knitr` Bundle, you should always set the TM_LATEX_MASTE
 
 The bundle includes a couple of snippets and commands that are as useful in R as they are in `knitr`:
 
-* Underscore (_) generates the R symbol <-. This is a familiar convention from  emacs' ESS package. (Longer-term, it makes sense to shift this over to the R bundle.)
 * Insert section/figure: Quick snippets for boilerplate `knitr` section and figure blocks.
+
+The commands are also explained at the [knitr.tmbundle GitHub repository](https://github.com/fonnesbeck/knitr.tmbundle). If you want to propose any changes, please submit a pull request.
 
 
 #### Contact
