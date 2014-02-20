@@ -2,11 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>changed</key>
-	<dict>
-		<key>command</key>
-		<string>#!/bin/bash
-source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
 # Source some support functions we need.
 . "${TM_SUPPORT_PATH}/lib/html.sh"
 . "${TM_SUPPORT_PATH}/lib/webpreview.sh"
@@ -14,7 +15,8 @@ source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
 # Get the viewer program. Any program (that works with open -a &lt;name&gt;) can be used,
 # except 'html' which is reserved to mean the internal HTML window. This is also the
 # default option.
-V=${TM_LATEX_VIEWER:-html}
+# V=${TM_LATEX_VIEWER:-html}
+V="TeXShop"
 EL=${TM_LATEX_ERRLVL:-1}
 M=${TM_LATEX_MASTER:-$TM_FILEPATH}
 DIR=`dirname "$M"`
@@ -38,10 +40,16 @@ cd "$DIR"
 
 # Prepare output window.
 html_header 'Knit, Typeset &amp;amp; View' "$FILE"
-echo '&lt;h2&gt;knitting…&lt;/h2&gt;'
+echo '&lt;h2&gt;Kniting…&lt;/h2&gt;'
+
+# Choose R from the TextMate TM_REXEC variable or default to R
+if [ "$TM_REXEC" = "" ]
+	then USE_THIS_R="R"
+	else USE_THIS_R="$TM_REXEC"
+fi
 
 SW=${TM_KNITR_WD:=${TM_DIRECTORY}}
-echo -e "setwd('$SW')\nknit('$TM_FILEPATH')" | "$TM_REXEC" --vanilla --quiet | pre
+echo -e "setwd('$SW');library(knitr);knit('$TM_FILEPATH')" | ${USE_THIS_R} --vanilla --quiet | pre
 
 # Check if we actually have a tex compiler
 require_cmd "$TEX" "You can either set the &lt;tt&gt;TM_LATEX_COMPILER&lt;/tt&gt; variable to the full path of your LaTeX compiler (e.g. &lt;tt&gt;/opt/local/bin/pdflatex&lt;/tt&gt; or set the &lt;tt&gt;PATH&lt;/tt&gt; variable to include the path of &lt;tt&gt;pdflatex&lt;/tt&gt;."
@@ -61,7 +69,7 @@ RC=$?
 # If there is output and it's newer than the current document, then we go directly to preview or link to it.
 if [ -s "${PDF}" -a ! "$PDF" -ot "$FILE" ]; then
 	if [[ "$V" == html ]]; then
-		WEB_LOC="tm-file://${DIR}/${PDF}"
+		WEB_LOC="file://${DIR}/${PDF}"
 		WEB_LOC="${WEB_LOC//\\#/%23}"
 		if (($RC &gt; $EL))
 			then link "${WEB_LOC}" 'Click Here to Preview'
@@ -85,26 +93,25 @@ else
 fi
 html_footer
 </string>
-		<key>inputFormat</key>
-		<string>text</string>
-		<key>outputCaret</key>
-		<string>afterOutput</string>
-		<key>outputFormat</key>
-		<string>html</string>
-		<key>outputLocation</key>
-		<string>newWindow</string>
-		<key>scope</key>
-		<string>text.tex.latex.knitr, text.knitr</string>
-		<key>version</key>
-		<integer>2</integer>
-	</dict>
-	<key>deleted</key>
-	<array>
-		<string>output</string>
-	</array>
-	<key>isDelta</key>
-	<true/>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~p</string>
+	<key>name</key>
+	<string>Knit, Typeset &amp; View</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>text.tex.latex.knitr, text.knitr</string>
 	<key>uuid</key>
-	<string>991D5426-F625-449C-A4D1-5EEFA0EE37D1</string>
+	<string>23143ED4-0E9D-47A8-99EC-F2D1EB93BB1A</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
