@@ -2,12 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>autoScrollOutput</key>
+	<true/>
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>#!/usr/bin/env bash
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
-
+	<string>#!/bin/bash
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
 # Source some support functions we need.
 . "${TM_SUPPORT_PATH}/lib/html.sh"
 . "${TM_SUPPORT_PATH}/lib/webpreview.sh"
@@ -15,8 +16,7 @@
 # Get the viewer program. Any program (that works with open -a &lt;name&gt;) can be used,
 # except 'html' which is reserved to mean the internal HTML window. This is also the
 # default option.
-# V=${TM_LATEX_VIEWER:-html}
-V="TeXShop"
+V=${TM_LATEX_VIEWER:-html}
 EL=${TM_LATEX_ERRLVL:-1}
 M=${TM_LATEX_MASTER:-$TM_FILEPATH}
 DIR=`dirname "$M"`
@@ -24,52 +24,28 @@ FILE=`basename "${M%.*}".tex`
 PDF="${FILE%.*}.pdf"
 CWD="`pwd`/"
 
-# Set up TeX compiler, fallback to xelatex if document indicates it
-if grep -Esq '\\usepackage{.*(xunicode|fontspec)|program=xelatex' "$M"
-	then DEF_TEX=xelatex
-	else DEF_TEX=pdflatex
-fi
-TEX=${TM_LATEX_COMPILER:-$DEF_TEX}
-
-# Add our tex directory to the TEXINPUTS variable so e.g. pdfsync is found (even when the user hasn’t installed it)
-export TEXINPUTS="$TM_BUNDLE_SUPPORT/tex//:$(kpsewhich --expand-var '$TEXINPUTS')"
-
 # Switch to the right directory.
 cd "$TM_PROJECT_DIRECTORY"
 cd "$DIR"
 
 # Prepare output window.
 html_header 'Knit, Typeset &amp;amp; View' "$FILE"
-echo '&lt;h2&gt;Kniting…&lt;/h2&gt;'
+echo '&lt;h2&gt;knitting…&lt;/h2&gt;'
 
-# Choose R from the TextMate TM_REXEC variable or default to R
-if [ "$TM_REXEC" = "" ]
-	then USE_THIS_R="R"
-	else USE_THIS_R="$TM_REXEC"
-fi
+echo $TM_FILEPATH
 
-SW=${TM_KNITR_WD:=${TM_DIRECTORY}}
-echo -e "setwd('$SW');library(knitr);knit('$TM_FILEPATH')" | ${USE_THIS_R} --vanilla --quiet | pre
+SW=${TM_SWEAVE_WD:=${TM_DIRECTORY}}
+echo -e "library(knitr)\nsetwd('$SW')\nknit('$TM_FILEPATH')" | R --vanilla --quiet | pre 
 
-# Check if we actually have a tex compiler
-require_cmd "$TEX" "You can either set the &lt;tt&gt;TM_LATEX_COMPILER&lt;/tt&gt; variable to the full path of your LaTeX compiler (e.g. &lt;tt&gt;/opt/local/bin/pdflatex&lt;/tt&gt; or set the &lt;tt&gt;PATH&lt;/tt&gt; variable to include the path of &lt;tt&gt;pdflatex&lt;/tt&gt;."
+# Ccompile
+texi2pdf -c $FILE | pre
 
-
-run_tex () {
-if [ "$TEX" != latexmk.pl ]
-	then "$TEX" ${TM_LATEX_OPTIONS:=-interaction=nonstopmode -file-line-error-style} "$1"
-	else "$TEX" -f -r "${TM_BUNDLE_SUPPORT}/latexmkrc" "$1"
-fi
-}
-
-# Compile.
-run_tex "$FILE" 2&gt;&amp;1| latexErrWarnHtml.py -v
 RC=$?
 
 # If there is output and it's newer than the current document, then we go directly to preview or link to it.
 if [ -s "${PDF}" -a ! "$PDF" -ot "$FILE" ]; then
 	if [[ "$V" == html ]]; then
-		WEB_LOC="file://${DIR}/${PDF}"
+		WEB_LOC="tm-file://${DIR}/${PDF}"
 		WEB_LOC="${WEB_LOC//\\#/%23}"
 		if (($RC &gt; $EL))
 			then link "${WEB_LOC}" 'Click Here to Preview'
@@ -98,7 +74,7 @@ html_footer
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~p</string>
+	<string>@r</string>
 	<key>name</key>
 	<string>Knit, Typeset &amp; View</string>
 	<key>outputCaret</key>
