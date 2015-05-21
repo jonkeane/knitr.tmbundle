@@ -11,6 +11,8 @@ cd ~/Library/Application\ Support/Avian/Bundles/
 git clone https://github.com/fonnesbeck/knitr.tmbundle.git
 ```
 
+You must enable the PATH variable and include the path to your latex binaries in TextMate's preferences.
+
 ## Commands
 
 * __Knit, Typeset & View__ 
